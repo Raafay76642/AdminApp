@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile_">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/linear1">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rountcorner"
+            android:src="@drawable/doctor" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear1"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="First Name"
+            android:textColor="@color/blue"
+            android:paddingLeft="15dp"
+            android:padding="10dp"
+            android:textSize="15sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            android:padding="10dp"
+            android:paddingLeft="15dp"
+            android:text="Muneeb"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Second Name"
+            android:textColor="@color/blue"
+            android:paddingLeft="15dp"
+            android:padding="10dp"
+            android:textSize="15sp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Ur Rehman"
+            android:textColor="#808080"
+            android:paddingLeft="15dp"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:inputType="none"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Email"
+            android:textColor="@color/blue"
+            android:paddingLeft="15dp"
+            android:padding="10dp"
+            android:textSize="15sp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="example@gmail.com"
+            android:textColor="#808080"
+            android:paddingLeft="15dp"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:inputType="none"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Department"
+            android:textColor="@color/blue"
+            android:paddingLeft="15dp"
+            android:padding="10dp"
+            android:textSize="15sp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Cardialogy"
+            android:textColor="#808080"
+            android:paddingLeft="15dp"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:inputType="none"
+
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>

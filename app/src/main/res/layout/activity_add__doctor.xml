@@ -1,0 +1,204 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Add_Doctor"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="0.5"
+        android:padding="10dp"
+        >
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/doctor" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/blue"
+                    android:paddingLeft="15dp"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/d_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none|textPersonName"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textColor="@color/blue"
+                    android:paddingLeft="15dp"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+
+                <EditText
+                    android:id="@+id/d_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:textColor="@color/blue"
+                    android:paddingLeft="15dp"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/d_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+                    android:visibility="visible"/>
+                <EditText
+                    android:id="@+id/d_repassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+                    android:visibility="visible"
+                    android:hint="Re-type Password"
+                    android:textColorHint="@color/blue"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Department"
+                    android:textColor="@color/blue"
+                    android:paddingLeft="15dp"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/d_dep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/Department"
+                    android:inputType="none"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+                    android:textColor="#808080"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gender"
+                    android:textColor="@color/blue"
+                    android:paddingLeft="15dp"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/d_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/Gender"
+                    android:inputType="none"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+                    android:textColor="#808080"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Country"
+                    android:textColor="@color/blue"
+                    android:paddingLeft="15dp"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+                <Spinner
+                    android:id="@+id/d_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/counteryName"
+                    android:inputType="none"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+                    android:textColor="#808080"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Age"
+                    android:textColor="@color/blue"
+                    android:paddingLeft="15dp"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/d_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none|number"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+
+                    android:textColor="#808080"
+                    android:textSize="15sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Save"
+                        android:layout_marginHorizontal="30dp"
+                        android:id="@+id/b_d_add"
+                        android:onClick="registerDoc"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>
