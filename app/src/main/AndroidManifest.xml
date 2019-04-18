@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Edit_Doc_profile" />
-        <activity android:name=".list_view_admin_doc" />
+        <activity android:name=".Recycler_view_admin_doc" />
         <activity android:name=".Admin_select_Doc" />
         <activity android:name=".Add_Doctor" />
         <activity android:name=".Admin_main" />

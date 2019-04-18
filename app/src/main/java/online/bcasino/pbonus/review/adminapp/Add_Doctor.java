@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Add_Doctor extends AppCompatActivity {
 
-    EditText dname,demail,dpass,dage,drepass;
+    EditText dname,demail,dpass,dage,drepass,d_fee;
     Spinner ddep,dgender,dcountry;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
@@ -39,6 +39,7 @@ public class Add_Doctor extends AppCompatActivity {
         dage=(EditText)findViewById(R.id.d_age);
         bdadd=(Button) findViewById(R.id.b_d_add);
         ddep=(Spinner) findViewById(R.id.d_dep);
+        d_fee=(EditText)findViewById(R.id.dfee);
         dgender=(Spinner) findViewById(R.id.d_gender);
         drepass=(EditText)findViewById(R.id.d_repassword);
         dcountry=(Spinner) findViewById(R.id.d_country);firebaseAuth = FirebaseAuth.getInstance();
@@ -66,6 +67,7 @@ public class Add_Doctor extends AppCompatActivity {
         String Country = dcountry.getSelectedItem().toString();
         String Age=dage.getText().toString();
         String dep=ddep.getSelectedItem().toString();
+        String fee=d_fee.getText().toString();
         if( TextUtils.isEmpty(Name))
         {
             //email is empty
@@ -97,8 +99,13 @@ public class Add_Doctor extends AppCompatActivity {
             return;
         }
         if (TextUtils.isEmpty(dep))
+    {
+        Toast.makeText(this,"Please choose a Department ",Toast.LENGTH_LONG).show();
+        return;
+    }
+        if (TextUtils.isEmpty(fee))
         {
-            Toast.makeText(this,"Please choose a Department ",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Please enter fee ",Toast.LENGTH_LONG).show();
             return;
         }
         //both the edit text are not empty
@@ -113,8 +120,8 @@ public class Add_Doctor extends AppCompatActivity {
                             id=FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                             //display some message here
-                            ProfileModel profileModel =new ProfileModel(Name,Gender,Country,Age,id,email,dep);
-                            mref.child(id).setValue(profileModel);
+                            Doctor_Model doctorModel =new Doctor_Model(Name,Gender,Country,Age,id,email,dep,fee);
+                            mref.child(id).setValue(doctorModel);
                             Toast.makeText(Add_Doctor.this,"Successfully registered",Toast.LENGTH_LONG).show();
 
 

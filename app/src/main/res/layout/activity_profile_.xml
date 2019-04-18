@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:gravity="center"
         android:orientation="vertical"
         android:id="@+id/linear1">
@@ -22,17 +22,23 @@
             android:src="@drawable/doctor" />
 
     </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linear1">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linear1"
+        android:layout_height="match_parent"
+
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingTop="20dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="First Name"
+            android:text="Name"
             android:textColor="@color/blue"
             android:paddingLeft="15dp"
             android:padding="10dp"
@@ -41,30 +47,16 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="none"
             android:padding="10dp"
             android:paddingLeft="15dp"
             android:text="Muneeb"
             android:textColor="@color/gray"
-            android:textSize="15sp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Second Name"
-            android:textColor="@color/blue"
-            android:paddingLeft="15dp"
-            android:padding="10dp"
-            android:textSize="15sp" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Ur Rehman"
-            android:textColor="#808080"
-            android:paddingLeft="15dp"
-            android:padding="10dp"
             android:textSize="15sp"
-            android:inputType="none"
+            android:enabled="false"
+            android:focusable="false"
+            android:id="@+id/name"
             />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -81,7 +73,10 @@
             android:paddingLeft="15dp"
             android:padding="10dp"
             android:textSize="15sp"
-            android:inputType="none"/>
+            android:inputType="none"
+            android:enabled="false"
+            android:focusable="false"
+            android:id="@+id/email"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -99,9 +94,34 @@
             android:padding="10dp"
             android:textSize="15sp"
             android:inputType="none"
-
+            android:enabled="false"
+            android:focusable="false"
+            android:id="@+id/department"
             />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Country"
+            android:textColor="@color/blue"
+            android:paddingLeft="15dp"
+            android:padding="10dp"
+            android:textSize="15sp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Pakistan"
+            android:textColor="#808080"
+            android:paddingLeft="15dp"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:inputType="none"
+            android:enabled="false"
+            android:focusable="false"
+            android:id="@+id/country"
+            />
+
     </LinearLayout>
+    </ScrollView>
 
 
 </RelativeLayout>

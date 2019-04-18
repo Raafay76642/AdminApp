@@ -52,13 +52,20 @@ public class LoginUser extends Fragment {
         aemail=(EditText)view.findViewById(R.id.a_mail);
         apass=(EditText)view.findViewById(R.id.a_pass);
 
+
+
+
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
+//        if(firebaseAuth.getCurrentUser() != null)
+//        {
+//            getActivity().finish();
+//            open_adminMain();
+//        }
         buser_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +73,7 @@ public class LoginUser extends Fragment {
 
             }
         });
+
 
     }
 
@@ -105,12 +113,14 @@ public class LoginUser extends Fragment {
             }
         });
 }
-public void log_out(){
+
+
+
+    public void log_out(){
         firebaseAuth.signOut();
         getActivity().finish();
 
     }
-
 
 public void get_role(){
     id=FirebaseAuth.getInstance().getCurrentUser().getUid();

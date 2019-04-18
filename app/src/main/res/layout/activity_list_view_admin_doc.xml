@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".list_view_admin_doc"
+    tools:context=".Recycler_view_admin_doc"
     >
-    <ListView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/doc_lst"
-        android:visibility="visible"></ListView>
-
+        android:layout_height="match_parent" />
 </LinearLayout>

@@ -6,12 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".Doc_main">
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/screens_container"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0.10">
 
-    </LinearLayout>i
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome back"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/htName"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="What would you like to do today?"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/btm_nav_doc"

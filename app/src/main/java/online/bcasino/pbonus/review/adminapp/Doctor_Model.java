@@ -1,6 +1,10 @@
 package online.bcasino.pbonus.review.adminapp;
 
-public class ProfileModel {
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Doctor_Model {
     String name;
     String gender;
     String country;
@@ -9,7 +13,26 @@ public class ProfileModel {
     String email;
     String department;
 
-    public ProfileModel() {
+    public Doctor_Model(Map<String, Object> array) {
+        this.array = array;
+    }
+
+    Map<String, Object> array = new HashMap<>();
+
+
+
+
+    public String getFee() {
+        return fee;
+    }
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
+    String fee;
+
+    public Doctor_Model() {
     }
 
     public String getDepartment() {
@@ -33,7 +56,7 @@ public class ProfileModel {
 
 
 
-    public ProfileModel(String name, String gender, String country, String age, String department) {
+    public Doctor_Model(String name, String gender, String country, String age, String department) {
         this.name = name;
         this.gender = gender;
         this.country = country;
@@ -44,7 +67,7 @@ public class ProfileModel {
 
 
 
-    public ProfileModel(String name, String gender, String country, String age, String id, String email, String department) {
+    public Doctor_Model(String name, String gender, String country, String age, String id, String email, String department, String fee) {
         this.name = name;
         this.gender = gender;
         this.country = country;
@@ -52,6 +75,7 @@ public class ProfileModel {
         this.id = id;
         this.email=email;
         this.department=department;
+        this.fee=fee;
 
     }
 

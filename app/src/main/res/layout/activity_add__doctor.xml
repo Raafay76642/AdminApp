@@ -28,24 +28,26 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_margin="20dp">
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
                     android:text="Name"
                     android:textColor="@color/blue"
-                    android:paddingLeft="15dp"
-                    android:padding="10dp"
                     android:textSize="15sp" />
 
                 <EditText
@@ -55,13 +57,14 @@
                     android:inputType="none|textPersonName"
                     android:padding="10dp"
                     android:paddingLeft="15dp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
                     android:text="Email"
                     android:textColor="@color/blue"
-                    android:paddingLeft="15dp"
-                    android:padding="10dp"
                     android:textSize="15sp" />
 
 
@@ -72,13 +75,14 @@
                     android:inputType="textEmailAddress"
                     android:padding="10dp"
                     android:paddingLeft="15dp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
                     android:text="Password"
                     android:textColor="@color/blue"
-                    android:paddingLeft="15dp"
-                    android:padding="10dp"
                     android:textSize="15sp" />
 
                 <EditText
@@ -88,25 +92,26 @@
                     android:inputType="textPassword"
                     android:padding="10dp"
                     android:paddingLeft="15dp"
-                    android:visibility="visible"/>
+                    android:visibility="visible" />
+
                 <EditText
                     android:id="@+id/d_repassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Re-type Password"
                     android:inputType="textPassword"
                     android:padding="10dp"
                     android:paddingLeft="15dp"
-                    android:visibility="visible"
-                    android:hint="Re-type Password"
-                    android:textColorHint="@color/blue"/>
+                    android:textColorHint="@color/blue"
+                    android:visibility="visible" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
                     android:text="Department"
                     android:textColor="@color/blue"
-                    android:paddingLeft="15dp"
-                    android:padding="10dp"
                     android:textSize="15sp" />
 
                 <Spinner
@@ -124,10 +129,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
                     android:text="Gender"
                     android:textColor="@color/blue"
-                    android:paddingLeft="15dp"
-                    android:padding="10dp"
                     android:textSize="15sp" />
 
                 <Spinner
@@ -144,11 +149,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
                     android:text="Country"
                     android:textColor="@color/blue"
-                    android:paddingLeft="15dp"
-                    android:padding="10dp"
                     android:textSize="15sp" />
+
                 <Spinner
                     android:id="@+id/d_country"
                     android:layout_width="match_parent"
@@ -164,10 +170,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
                     android:text="Age"
                     android:textColor="@color/blue"
-                    android:paddingLeft="15dp"
-                    android:padding="10dp"
                     android:textSize="15sp" />
 
                 <EditText
@@ -180,25 +186,45 @@
 
                     android:textColor="#808080"
                     android:textSize="15sp" />
-                <LinearLayout
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="20dp">
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+                    android:text="Fee"
+                    android:textColor="@color/blue"
+                    android:textSize="15sp" />
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Save"
-                        android:layout_marginHorizontal="30dp"
-                        android:id="@+id/b_d_add"
-                        android:onClick="registerDoc"
-                        />
-                </LinearLayout>
+                <EditText
+                    android:id="@+id/dfee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none|number"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+
+                    android:textColor="#808080"
+                    android:textSize="15sp" />
+
 
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:paddingTop="10dp">-->
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_marginHorizontal="30dp"
+            android:id="@+id/b_d_add"
+            android:onClick="registerDoc"
+            />
+    <!--</LinearLayout>-->
 
 </LinearLayout>
