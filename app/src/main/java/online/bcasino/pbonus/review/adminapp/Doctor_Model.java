@@ -12,12 +12,19 @@ public class Doctor_Model {
     String id;
     String email;
     String department;
+    String slot1,slot2,slot3,slot4,slot5,date;
 
-    public Doctor_Model(Map<String, Object> array) {
-        this.array = array;
+    public Doctor_Model(String slot1, String slot2, String slot3, String slot4, String slot5, String date) {
+        this.slot1 = slot1;
+        this.slot2 = slot2;
+        this.slot3 = slot3;
+        this.slot4 = slot4;
+        this.slot5 = slot5;
+        this.date = date;
     }
 
-    Map<String, Object> array = new HashMap<>();
+
+
 
 
 
