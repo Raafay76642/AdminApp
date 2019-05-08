@@ -19,7 +19,9 @@
             android:layout_height="50dp"
             android:layout_weight="2"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/doctor" />
+            android:src="@drawable/doctor"
+            android:id="@+id/profile_image"
+            android:onClick="open_gallery"/>
 
     </LinearLayout>
 
@@ -223,7 +225,6 @@
             android:text="Save"
             android:layout_marginHorizontal="30dp"
             android:id="@+id/b_d_add"
-            android:onClick="registerDoc"
             />
     <!--</LinearLayout>-->
 

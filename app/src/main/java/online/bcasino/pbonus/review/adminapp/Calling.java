@@ -33,8 +33,8 @@ public class Calling extends AppCompatActivity implements Connector.IConnect {
 
     public void Disconnect(View v) {
         vc.disconnect();
-        Intent intent=new Intent(this,Booked_apntments.class);
-        startActivity(intent);
+//        Intent intent=new Intent(this,Booked_apntments.class);
+//        startActivity(intent);
     }
     @Override
     public void onSuccess() {

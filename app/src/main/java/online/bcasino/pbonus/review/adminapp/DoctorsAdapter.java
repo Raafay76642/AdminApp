@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,7 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsV
                 Intent intent=new Intent(mCtx,Edit_Doc_profile.class);
                 intent.putExtra("key",doctorModel.getId());
                 mCtx.startActivity(intent);
+
             }
         });
 
@@ -66,7 +68,7 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsV
     class DoctorsViewHolder extends RecyclerView.ViewHolder {
 
         TextView textViewName, textViewDep, textViewAge, textViewDoc_Id;
-       RelativeLayout cardview;
+       CardView cardview;
 
         public DoctorsViewHolder(@NonNull View itemView) {
             super(itemView);

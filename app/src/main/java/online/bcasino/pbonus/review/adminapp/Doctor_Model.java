@@ -12,6 +12,8 @@ public class Doctor_Model {
     String id;
     String email;
     String department;
+    String role;
+    String profilePic;
     String slot1,slot2,slot3,slot4,slot5,date;
 
     public Doctor_Model(String slot1, String slot2, String slot3, String slot4, String slot5, String date) {
@@ -74,7 +76,7 @@ public class Doctor_Model {
 
 
 
-    public Doctor_Model(String name, String gender, String country, String age, String id, String email, String department, String fee) {
+    public Doctor_Model(String name, String gender, String country, String age, String id, String email, String department, String fee ,String role,String profilePic) {
         this.name = name;
         this.gender = gender;
         this.country = country;
@@ -83,6 +85,8 @@ public class Doctor_Model {
         this.email=email;
         this.department=department;
         this.fee=fee;
+        this.role=role;
+        this.profilePic=profilePic;
 
     }
 

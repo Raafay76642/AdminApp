@@ -1,54 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/cardview">
-    >
-
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        >
-
+        android:id="@+id/cardview">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="7dp">
-
-
-            <TextView
-                android:id="@+id/text_view_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Atif "
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <TextView
-                android:id="@+id/text_dep"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="department"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-
-            <TextView
-                android:id="@+id/text_view_age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Age: 27"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:id="@+id/text_view_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ID:"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-
+            android:orientation="vertical">
+         <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_name"
+             android:hint="Test"
+             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_dep"
+            android:hint="Test"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_age"
+            android:hint="Test"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_id"
+            android:hint="Test"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-</RelativeLayout>
+</LinearLayout>

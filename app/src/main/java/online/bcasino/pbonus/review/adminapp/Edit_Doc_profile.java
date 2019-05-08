@@ -30,6 +30,7 @@ public class Edit_Doc_profile extends AppCompatActivity {
     TextView t1,t2,t3,t4,t5,datetext;
     CheckBox slot1,slot2,slot3,slot4,slot5;
     DatabaseReference mref;
+    String datekey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -171,7 +172,7 @@ public void datePicker(View view)
                 public void onDateSet(DatePicker view, int year,
                                       int monthOfYear, int dayOfMonth) {
                     datevar = dayOfMonth +":"+monthOfYear+":"+year;
-
+                        datekey= String.valueOf(dayOfMonth +monthOfYear+year);
                     datetext.setText(datevar);
                 }
             }, mYear, mMonth, mDay);
@@ -188,7 +189,7 @@ public void SaveDateTime(View view)
     if(datevar.isEmpty()) {
         Toast.makeText(Edit_Doc_profile.this,"Date Can't be Empty",Toast.LENGTH_LONG).show();
     }
-    else
+
     {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Doctors").child(key).child(datevar);
         Doctor_Model doctor_model = new Doctor_Model(slot1start, slot2start, slot3start, slot4start, slot5start, datevar);
@@ -207,6 +208,7 @@ public void SaveDateTime(View view)
         if (slot5.isChecked() == true) {
             databaseReference.child("slot5").setValue(slot5start);
         }
+
     }
        }
 
