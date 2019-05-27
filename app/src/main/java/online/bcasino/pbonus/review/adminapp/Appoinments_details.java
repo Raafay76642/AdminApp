@@ -20,7 +20,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
+import java.util.Calendar;
+import java.util.Date;
 
 public class Appoinments_details extends AppCompatActivity {
     EditText timeInterval,date,status;
@@ -92,8 +93,51 @@ public class Appoinments_details extends AppCompatActivity {
 
                         }
                     });
+////////////////////////////Button active Deactive//////////////////////////////////////////////
+                    Calendar c = Calendar.getInstance();
+                    int currentyear = c.get(Calendar.YEAR);
+                    int currentmonth = 4;//c.get(Calendar.MONTH);
+                    int currentday =  28;//c.get(Calendar.DAY_OF_MONTH);
+                    int currentHours = 2;// c.get(Calendar.HOUR_OF_DAY);
+                    int cureentMinuts= 45;//c.get(Calendar.MINUTE);
+                    String CurrentDate = currentday +":"+currentmonth+":"+currentyear;
+                         if(CurrentDate.equals(apntments_model.getDate()))
+                    {
+                        // Time Logic for starting
+
+                        String startTime = apntments_model.sTime;
+                        String[] separated = startTime.split(":");
+                        int startHour = Integer.parseInt(separated[0]);;
+                        int startMinuts = Integer.parseInt(separated[1]);;;
+                        String endTime = apntments_model.eTime;
+                        String[] separated1 = startTime.split(":");
+                        int endHour = Integer.parseInt(separated1[0]);;
+                        int endMinuts = Integer.parseInt(separated1[1]);;;
+                        if ((currentHours >=startHour) && (cureentMinuts >=startMinuts))
+                        {
+                            call.setEnabled(true);
+                            call.setBackground(getResources().getDrawable(R.drawable.rountcorner));
+                            call.setBackgroundColor(getResources().getColor(R.color.parrot));
+                            call.setTextColor(getResources().getColor(R.color.white));
+                            //Time Logic for Ending
+                            if ((currentHours <=endHour) && (cureentMinuts <=startMinuts))
+                            {
+                                call.setEnabled(false);
+                                call.setBackground(getResources().getDrawable(R.drawable.rountcorner));
+                                call.setBackgroundColor(android.R.drawable.btn_default);
+                                call.setTextColor(android.R.drawable.btn_default);
+                            }
+                        }
 
 
+
+
+
+
+
+
+
+                    }
                 }
             }
 
@@ -144,6 +188,9 @@ public class Appoinments_details extends AppCompatActivity {
         intent.putExtra("pid",pid);
         startActivity(intent);
     }
+
+
+
 
 
 }
