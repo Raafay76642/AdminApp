@@ -33,7 +33,7 @@ FirebaseAuth firebaseAuth;
 
 
     public void open_addDoc(View view) {
-        Intent intent = new Intent(this, Add_Doctor.class);
+        Intent intent = new Intent(this, Signup_DOC.class);
         startActivity(intent);
 
     }

@@ -13,6 +13,7 @@ import com.vidyo.VidyoClient.Connector.ConnectorPkg;
 public class Calling extends AppCompatActivity implements Connector.IConnect {
     private Connector vc;
     private FrameLayout videoFrame;
+    private String room;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +22,24 @@ public class Calling extends AppCompatActivity implements Connector.IConnect {
         ConnectorPkg.setApplicationUIContext(this);
         ConnectorPkg.initialize();
         videoFrame = (FrameLayout)findViewById(R.id.videoFrame);
+        get_intent();
+
+    }
+    public void get_intent(){
+        Intent intent=getIntent();
+        room=intent.getStringExtra("room");
     }
     public void Start(View v) {
-        vc = new Connector(videoFrame, Connector.ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default, 2, "warning info@VidyoClient info@VidyoConnector", "", 0);
+        vc = new Connector(videoFrame, Connector.ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default, 10, "warning info@VidyoClient info@VidyoConnector", "", 0);
+        vc.showViewAt(videoFrame, 0, 0, videoFrame.getWidth(), videoFrame.getHeight());
+    }
+    public void Start() {
+        vc = new Connector(videoFrame, Connector.ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default, 10, "warning info@VidyoClient info@VidyoConnector", "", 0);
         vc.showViewAt(videoFrame, 0, 0, videoFrame.getWidth(), videoFrame.getHeight());
     }
     public void Connect(View v) {
-        String token = "cHJvdmlzaW9uAHVzZXIxQGZjZmQwOC52aWR5by5pbwA2MzcyMTI4MjExMwAAN2U4MGJhMzdiOWY4OTk5ZTBiMTkyNzViOGU4NWM5YWQyZGM1NDI4NDM3ZTg3YmMwMGE3N2JkNTA4NzgyMmMzZDg5YmNjYTMyMWY1OTI3NmU0MjhlZjExYzY4NmQzNjIw";
-        vc.connect("prod.vidyo.io", token, "Zainab", "Room", this);
+        String token = "cHJvdmlzaW9uAHVzZXIxQGIxNGExYy52aWR5by5pbwA2MzcyNTY4MjcwNgAANjAzOTRlMmM4ZDRkZDQ2ZjVlZWI0NjQ4MzI1ZWU4MWQyNWU5YTQ1OTM4ZjBhYmZjYWMwN2U5OTA5YzljZDcwMjZkMDljYTE2YWFhMDA5ODU1ODg0MDc4ZTljYTQ1OWI0";
+        vc.connect("prod.vidyo.io", token, "DemoUser", room, this);
     }
 
     public void Disconnect(View v) {

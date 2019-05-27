@@ -3,32 +3,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Add_Doctor"
+    tools:context=".Signup_DOC"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:orientation="vertical"
-        android:layout_marginBottom="20dp"
-        android:layout_weight="0.5"
-        android:padding="10dp"
-        >
-
+        android:background="@color/blue"
+        android:orientation="horizontal"
+        android:gravity="center">
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_weight="2"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/doctor"
-            android:id="@+id/profile_image"
-            android:onClick="open_gallery"/>
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:src="@drawable/logo"
+            android:layout_weight="1"
+            android:layout_marginLeft="-10dp"
+            />
 
+        <TextView
+            android:id="@+id/heading"
+            android:layout_marginRight="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Good Docter"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@android:color/background_light"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="8"
         android:orientation="vertical">
 
@@ -40,15 +47,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:paddingLeft="15dp"
-                    android:text="Name"
+                    android:text="Full Name"
                     android:textColor="@color/blue"
                     android:textSize="15sp" />
 
@@ -107,67 +114,89 @@
                     android:textColorHint="@color/blue"
                     android:visibility="visible" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:paddingLeft="15dp"
-                    android:text="Department"
-                    android:textColor="@color/blue"
-                    android:textSize="15sp" />
+                    android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/d_dep"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:padding="10dp"
+                        android:paddingLeft="15dp"
+                        android:text="Department"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp" />
+
+                    <Spinner
+                        android:id="@+id/d_dep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/Department"
+                        android:inputType="none"
+                        android:padding="10dp"
+                        android:paddingLeft="15dp"
+                        android:textColor="#808080"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/Department"
-                    android:inputType="none"
-                    android:padding="10dp"
-                    android:paddingLeft="15dp"
-                    android:textColor="#808080"
-                    android:textSize="15sp" />
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:padding="10dp"
+                        android:paddingLeft="15dp"
+                        android:text="Gender"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp" />
 
-                <TextView
+                    <Spinner
+                        android:id="@+id/d_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/Gender"
+                        android:inputType="none"
+                        android:padding="10dp"
+                        android:paddingLeft="15dp"
+                        android:textColor="#808080"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:paddingLeft="15dp"
-                    android:text="Gender"
-                    android:textColor="@color/blue"
-                    android:textSize="15sp" />
+                    android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/d_gender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/Gender"
-                    android:inputType="none"
-                    android:padding="10dp"
-                    android:paddingLeft="15dp"
-                    android:textColor="#808080"
-                    android:textSize="15sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:padding="10dp"
+                        android:paddingLeft="15dp"
+                        android:text="Country"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:paddingLeft="15dp"
-                    android:text="Country"
-                    android:textColor="@color/blue"
-                    android:textSize="15sp" />
-
-                <Spinner
-                    android:id="@+id/d_country"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/counteryName"
-                    android:inputType="none"
-                    android:padding="10dp"
-                    android:paddingLeft="15dp"
-                    android:textColor="#808080"
-                    android:textSize="15sp" />
-
+                    <Spinner
+                        android:id="@+id/d_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/counteryName"
+                        android:inputType="none"
+                        android:padding="10dp"
+                        android:paddingLeft="15dp"
+                        android:textColor="#808080"
+                        android:textSize="15sp" />
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -177,7 +206,6 @@
                     android:text="Age"
                     android:textColor="@color/blue"
                     android:textSize="15sp" />
-
                 <EditText
                     android:id="@+id/d_age"
                     android:layout_width="match_parent"
@@ -185,7 +213,6 @@
                     android:inputType="none|number"
                     android:padding="10dp"
                     android:paddingLeft="15dp"
-
                     android:textColor="#808080"
                     android:textSize="15sp" />
 
@@ -210,22 +237,22 @@
                     android:textSize="15sp" />
 
 
+
+
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:paddingTop="10dp">-->
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:layout_marginHorizontal="30dp"
-            android:id="@+id/b_d_add"
-            />
-    <!--</LinearLayout>-->
+
+    <Button
+        android:id="@+id/b_d_add"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/rountcorner"
+        android:backgroundTint="@color/blue"
+        android:text="Save"
+        android:textColor="@color/white" />
 
 </LinearLayout>

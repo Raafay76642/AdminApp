@@ -6,23 +6,32 @@ import java.util.Map;
 
 public class Doctor_Model {
     String name;
-    String gender;
     String country;
+    String gender;
     String age;
     String id;
     String email;
+    String fee;
     String department;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     String role;
     String profilePic;
-    String slot1,slot2,slot3,slot4,slot5,date;
+    String slot1="",slot2="",slot3="",slot4="",slot5="";
 
-    public Doctor_Model(String slot1, String slot2, String slot3, String slot4, String slot5, String date) {
+    public Doctor_Model(String slot1, String slot2, String slot3, String slot4, String slot5) {
         this.slot1 = slot1;
         this.slot2 = slot2;
         this.slot3 = slot3;
         this.slot4 = slot4;
         this.slot5 = slot5;
-        this.date = date;
     }
 
 
@@ -39,7 +48,6 @@ public class Doctor_Model {
         this.fee = fee;
     }
 
-    String fee;
 
     public Doctor_Model() {
     }
@@ -65,18 +73,16 @@ public class Doctor_Model {
 
 
 
-    public Doctor_Model(String name, String gender, String country, String age, String department) {
+    public Doctor_Model(String name, String country, String profilePic,String fee) {
         this.name = name;
-        this.gender = gender;
+        this.fee=fee;
         this.country = country;
-        this.age = age;
-        this.department=department;
-
+        this.profilePic=profilePic;
     }
 
 
 
-    public Doctor_Model(String name, String gender, String country, String age, String id, String email, String department, String fee ,String role,String profilePic) {
+    public Doctor_Model(String name, String gender, String country, String age, String id, String email, String department, String fee ,String role) {
         this.name = name;
         this.gender = gender;
         this.country = country;
@@ -86,7 +92,7 @@ public class Doctor_Model {
         this.department=department;
         this.fee=fee;
         this.role=role;
-        this.profilePic=profilePic;
+
 
     }
 

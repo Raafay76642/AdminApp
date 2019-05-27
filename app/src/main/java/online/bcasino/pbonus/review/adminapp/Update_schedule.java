@@ -2,39 +2,38 @@ package online.bcasino.pbonus.review.adminapp;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.ViewUtils;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
-public class Edit_Doc_profile extends AppCompatActivity {
+public class Update_schedule extends AppCompatActivity {
 
     String key;
-    String slot1start,slot2start,slot3start,slot4start,slot5start,datevar;
+    String slot1start,slot2start,slot3start,slot4start,slot5start,datevar="";
     TextView t1,t2,t3,t4,t5,datetext;
     CheckBox slot1,slot2,slot3,slot4,slot5;
     DatabaseReference mref;
+    Button update;
+    FirebaseAuth firebaseAuth;
     String datekey;
+    DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit__doc_profile);
+        setContentView(R.layout.activity_update_schedule);
         mref= FirebaseDatabase.getInstance().getReference("Doctors");
         slot1 = findViewById(R.id.slot1);
         slot2 = findViewById(R.id.slot2);
@@ -48,11 +47,30 @@ public class Edit_Doc_profile extends AppCompatActivity {
         t5 =findViewById(R.id.t5);
 
         datetext = findViewById(R.id.date);
-        Intent intent=getIntent();
-        key=intent.getStringExtra("key");
+        update=findViewById(R.id.U_sche);
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SaveDateTime();
+            }
+        });
+        mref=FirebaseDatabase.getInstance().getReference();
+        firebaseAuth=FirebaseAuth.getInstance();
+        key=FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        Intent intent=getIntent();
+//        key=intent.getStringExtra("key");
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        Intent intent=new Intent(this,Doc_main.class);
+        startActivity(intent);
+        super.onBackPressed();
+    }
+
     public void timePicker1(View view)
     {
         if (slot1.isChecked()==true)
@@ -61,7 +79,7 @@ public class Edit_Doc_profile extends AppCompatActivity {
         int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
         int minute = mcurrentTime.get(Calendar.MINUTE);
         TimePickerDialog mTimePicker;
-        mTimePicker = new TimePickerDialog(Edit_Doc_profile.this, new TimePickerDialog.OnTimeSetListener() {
+        mTimePicker = new TimePickerDialog(Update_schedule.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                 slot1start = selectedHour+":"+selectedMinute;
@@ -81,7 +99,7 @@ public class Edit_Doc_profile extends AppCompatActivity {
             int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
             int minute = mcurrentTime.get(Calendar.MINUTE);
             TimePickerDialog mTimePicker;
-            mTimePicker = new TimePickerDialog(Edit_Doc_profile.this, new TimePickerDialog.OnTimeSetListener() {
+            mTimePicker = new TimePickerDialog(Update_schedule.this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                     slot2start = selectedHour+":"+selectedMinute;
@@ -101,7 +119,7 @@ public class Edit_Doc_profile extends AppCompatActivity {
             int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
             int minute = mcurrentTime.get(Calendar.MINUTE);
             TimePickerDialog mTimePicker;
-            mTimePicker = new TimePickerDialog(Edit_Doc_profile.this, new TimePickerDialog.OnTimeSetListener() {
+            mTimePicker = new TimePickerDialog(Update_schedule.this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                     slot3start = selectedHour+":"+selectedMinute;
@@ -122,7 +140,7 @@ public class Edit_Doc_profile extends AppCompatActivity {
             int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
             int minute = mcurrentTime.get(Calendar.MINUTE);
             TimePickerDialog mTimePicker;
-            mTimePicker = new TimePickerDialog(Edit_Doc_profile.this, new TimePickerDialog.OnTimeSetListener() {
+            mTimePicker = new TimePickerDialog(Update_schedule.this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                     slot4start = selectedHour+":"+selectedMinute;
@@ -145,7 +163,7 @@ public class Edit_Doc_profile extends AppCompatActivity {
             int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
             int minute = mcurrentTime.get(Calendar.MINUTE);
             TimePickerDialog mTimePicker;
-            mTimePicker = new TimePickerDialog(Edit_Doc_profile.this, new TimePickerDialog.OnTimeSetListener() {
+            mTimePicker = new TimePickerDialog(Update_schedule.this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                     slot5start = selectedHour+":"+selectedMinute;
@@ -184,15 +202,14 @@ public void datePicker(View view)
 
     };
 
-public void SaveDateTime(View view)
+public void SaveDateTime()
 {
     if(datevar.isEmpty()) {
-        Toast.makeText(Edit_Doc_profile.this,"Date Can't be Empty",Toast.LENGTH_LONG).show();
+        Toast.makeText(Update_schedule.this,"Date Can't be Empty",Toast.LENGTH_LONG).show();
     }
 
     {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Doctors").child(key).child(datevar);
-        Doctor_Model doctor_model = new Doctor_Model(slot1start, slot2start, slot3start, slot4start, slot5start, datevar);
+         databaseReference= FirebaseDatabase.getInstance().getReference("Doctors").child(key).child(datevar);
         if (slot1.isChecked() == true) {
             databaseReference.child("slot1").setValue(slot1start);
         }
@@ -207,12 +224,19 @@ public void SaveDateTime(View view)
         }
         if (slot5.isChecked() == true) {
             databaseReference.child("slot5").setValue(slot5start);
-        }
 
+        }
+        Toast.makeText(this, "Schedule Updated", Toast.LENGTH_SHORT).show();
+
+        finish();
+        docmain();
     }
        }
 
-
+public void docmain(){
+    Intent intent=new Intent(this,Doc_main.class);
+    startActivity(intent);
+}
 }
 
 

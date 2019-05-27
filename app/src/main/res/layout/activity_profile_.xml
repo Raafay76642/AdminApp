@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile_">
+    tools:context=".Profile_"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,114 +15,222 @@
         android:id="@+id/linear1">
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/P_image"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:background="@drawable/rountcorner"
-            android:src="@drawable/doctor" />
+            android:background="@drawable/doctor"
+            android:onClick="open_gallery"/>
 
     </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/linear1">
+        android:layout_below="@+id/linear1"
+        android:layout_marginTop="1dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingTop="20dp">
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Name"
-            android:textColor="@color/blue"
-            android:paddingLeft="15dp"
-            android:padding="10dp"
-            android:textSize="15sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Name"
+                android:textColor="@color/blue"
+                android:textSize="15sp" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:paddingLeft="15dp"
-            android:text="Muneeb"
-            android:textColor="@color/gray"
-            android:textSize="15sp"
-            android:enabled="false"
-            android:focusable="false"
-            android:id="@+id/name"
-            />
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="false"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Muneeb"
+                android:textColor="@color/gray"
+                android:textSize="15sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Email"
-            android:textColor="@color/blue"
-            android:paddingLeft="15dp"
-            android:padding="10dp"
-            android:textSize="15sp" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="example@gmail.com"
-            android:textColor="#808080"
-            android:paddingLeft="15dp"
-            android:padding="10dp"
-            android:textSize="15sp"
-            android:inputType="none"
-            android:enabled="false"
-            android:focusable="false"
-            android:id="@+id/email"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Department"
-            android:textColor="@color/blue"
-            android:paddingLeft="15dp"
-            android:padding="10dp"
-            android:textSize="15sp" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Cardialogy"
-            android:textColor="#808080"
-            android:paddingLeft="15dp"
-            android:padding="10dp"
-            android:textSize="15sp"
-            android:inputType="none"
-            android:enabled="false"
-            android:focusable="false"
-            android:id="@+id/department"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Country"
-            android:textColor="@color/blue"
-            android:paddingLeft="15dp"
-            android:padding="10dp"
-            android:textSize="15sp" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Pakistan"
-            android:textColor="#808080"
-            android:paddingLeft="15dp"
-            android:padding="10dp"
-            android:textSize="15sp"
-            android:inputType="none"
-            android:enabled="false"
-            android:focusable="false"
-            android:id="@+id/country"
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Email"
+                android:textColor="@color/blue"
+                android:textSize="15sp" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:focusable="false"
+                android:inputType="none"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="example@gmail.com"
+                android:textColor="#808080"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Department"
+                android:textColor="@color/blue"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/department"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:focusable="false"
+                android:inputType="none"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Cardialogy"
+                android:textColor="#808080"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+                    android:text="Country"
+                    android:textColor="@color/blue"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/counteryName"
+                    android:inputType="none"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+                    android:textColor="#808080"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Fee"
+                android:textColor="@color/blue"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/fee"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="false"
+                android:inputType="none"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="fee"
+                android:textColor="#808080"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+                    android:text="Gender"
+                    android:textColor="@color/blue"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/Gender"
+                    android:inputType="none"
+                    android:padding="10dp"
+                    android:paddingLeft="15dp"
+                    android:textColor="#808080"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Age"
+                android:textColor="@color/blue"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/age"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:focusable="false"
+                android:inputType="none"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="age"
+                android:textColor="#808080"
+                android:textSize="15sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:id="@+id/test"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginHorizontal="50dp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Update"
+                    android:id="@+id/update"
+                    android:onClick="update"
+                    android:layout_weight="1"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:id="@+id/edit"
+                    android:onClick="editable"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 
-</RelativeLayout>
+
+</LinearLayout>

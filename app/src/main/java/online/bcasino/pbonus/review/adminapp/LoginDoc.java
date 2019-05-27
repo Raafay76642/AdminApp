@@ -13,14 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.NotNull;
+import com.google.firebase.database.annotations.Nullable;
 
 
 public class LoginDoc extends Fragment {
@@ -28,6 +34,7 @@ public class LoginDoc extends Fragment {
     Button bdoc_login;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    TextView opensignup;
     private DatabaseReference mref;
 
     @Override
@@ -40,6 +47,13 @@ public class LoginDoc extends Fragment {
         progressDialog = new ProgressDialog(getActivity());
         doc_em=(EditText)view.findViewById(R.id.doc_em);
         doc_pass=(EditText)view.findViewById(R.id.doc_pass);
+        opensignup=view.findViewById(R.id.opensignup);
+        opensignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opensign_up();
+            }
+        });
         bdoc_login=(Button)view.findViewById(R.id.blogindoc);
         bdoc_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +61,12 @@ public class LoginDoc extends Fragment {
                 docLogin();
             }
         });
+        firebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() != null)
+        {
+            getActivity().finish();
+            openDoc();
+        }
         return view;
     }
     public void docLogin()
@@ -74,9 +94,10 @@ public class LoginDoc extends Fragment {
                 progressDialog.dismiss();
                 if (task.isSuccessful()) {
                    String id=firebaseAuth.getCurrentUser().getUid();
-                   Intent intent=new Intent(getActivity(),Doc_main.class);
-                   startActivity(intent);
-                   getActivity().finish();
+                    Intent intent=new Intent(getActivity(),Doc_main.class);
+                    startActivity(intent);
+                    getActivity().finish();
+
                 }
                 else {
                     Toast.makeText(getActivity(),"Wrong Credentials",Toast.LENGTH_LONG).show();
@@ -85,5 +106,14 @@ public class LoginDoc extends Fragment {
         });
     }
 
+    public void opensign_up(){
+        Intent intent=new Intent(getActivity(),Signup_DOC.class);
+        startActivity(intent);
+    }
+    public void openDoc(){
+        Intent intent=new Intent(getActivity(),Doc_main.class);
+        startActivity(intent);
+
+    }
 
 }

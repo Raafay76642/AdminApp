@@ -37,12 +37,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.Addfragment(new LoginUser(), "Login As Admin");
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
-        firebaseAuth.getInstance();
-//        if(firebaseAuth.getCurrentUser() != null)
-//        {
-//            check();
-//
-//        }
+
 
     }
 

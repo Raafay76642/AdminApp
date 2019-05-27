@@ -66,6 +66,11 @@ public class Doc_main extends AppCompatActivity {
                             KillThisActivity();
                             openDoc_aptmnts();
                             break;
+                        case R.id.nav_doc_update:
+                            KillThisActivity();
+                            update_sch();
+                            break;
+
                     }
                     return true;
                 }
@@ -80,6 +85,10 @@ public class Doc_main extends AppCompatActivity {
     {
         Intent intentdocter = new Intent(this, Doc_apntments.class);
         startActivity(intentdocter);
+    }
+    public void update_sch(){
+        Intent intent =new Intent(this,Update_schedule.class);
+        startActivity(intent);
     }
     public void KillThisActivity()
     {

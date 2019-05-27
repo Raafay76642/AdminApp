@@ -18,11 +18,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Appoinments_details"></activity>
-        <activity android:name=".Edit_Doc_profile" />
+        <activity android:name=".Prescription_Doc"></activity>
+        <activity android:name=".Health_Record" />
+        <activity android:name=".Appoinments_details" />
+        <activity android:name=".Update_schedule" />
         <activity android:name=".Recycler_view_admin_doc" />
         <activity android:name=".Admin_select_Doc" />
-        <activity android:name=".Add_Doctor" />
+        <activity android:name=".Signup_DOC" />
         <activity android:name=".Admin_main" />
         <activity android:name=".Calling" />
         <activity android:name=".Doc_apntments" />

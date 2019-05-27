@@ -8,8 +8,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -32,6 +40,7 @@ public class Apntments_adapter extends RecyclerView.Adapter<Apntments_adapter.Ap
 
     @Override
     public void onBindViewHolder(@NonNull ApntmentsViewHolder holder, int position) {
+        DatabaseReference mref;
         Apntments_Model apntments_model = apntmentsList.get(position);
         holder.textViewName.setText(apntments_model.uName);
         holder.textViewDate.setText(apntments_model.date);
@@ -45,6 +54,20 @@ public class Apntments_adapter extends RecyclerView.Adapter<Apntments_adapter.Ap
                 mCtx.startActivity(intent);
             }
         });
+        mref= FirebaseDatabase.getInstance().getReference("Users").child(apntments_model.getuID());
+        mref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            if (dataSnapshot.exists()){
+                Glide.with(mCtx).load(dataSnapshot.child("profilePic").getValue()).fitCenter().into(holder.img);
+            }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -56,6 +79,7 @@ public class Apntments_adapter extends RecyclerView.Adapter<Apntments_adapter.Ap
 
         TextView textViewName, textViewDate, textViewtime;
         CardView cardView;
+        ImageView img;
 
         public ApntmentsViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,6 +88,7 @@ public class Apntments_adapter extends RecyclerView.Adapter<Apntments_adapter.Ap
             textViewDate = itemView.findViewById(R.id.text_date1);
             textViewtime = itemView.findViewById(R.id.text_view_time1);
             cardView= itemView.findViewById(R.id.cardview1);
+            img=itemView.findViewById(R.id.img);
         }
     }
 }

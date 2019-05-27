@@ -5,10 +5,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <array name="counteryName">
         <item>Pakistan</item>
-        <item>Ethopia</item>
         <item>India</item>
-        <item>USA</item>
-        <item>UK</item>
         <item>UAE</item>
     </array>
     <array name="Gender">
@@ -25,6 +22,11 @@
     <array name="Doc_list_card">
         <item>Muneeb</item>
         <item>Shoaib</item>
+    </array>
+    <array name="BP">
+        <item>Normal</item>
+        <item>High</item>
+        <item>Low</item>
     </array>
     <array name="Doc_list_ortho">
         <item>Waleed</item>

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -60,13 +61,12 @@ public class Doc_apntments extends AppCompatActivity {
                 get_data_history();
             }
         });
-//            get_data_booked();
-
+        get_data_booked();
     }
     public void get_data_booked(){
         String key=FirebaseAuth.getInstance().getCurrentUser().getUid();
         Query query =FirebaseDatabase.getInstance().getReference("Appointments").child("Booked").orderByChild("dID").equalTo(key);
-        query.addValueEventListener(new ValueEventListener() {
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 apntments_List.clear();
@@ -77,19 +77,24 @@ public class Doc_apntments extends AppCompatActivity {
                     }
                     adapter.notifyDataSetChanged();
                 }
+                else {
+                    apntments_List.clear();
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(Doc_apntments.this, "No Booked Appointments", Toast.LENGTH_SHORT).show();
+                }
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                adapter.notifyDataSetChanged();
             }
         });
     }
     public void get_data_history(){
         String key=FirebaseAuth.getInstance().getCurrentUser().getUid();
         Query query =FirebaseDatabase.getInstance().getReference("Appointments").child("History").orderByChild("aID").equalTo(key);
-        query.addValueEventListener(new ValueEventListener() {
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 apntments_List.clear();
@@ -98,15 +103,20 @@ public class Doc_apntments extends AppCompatActivity {
                         Apntments_Model apntments_model = snapshot.getValue(Apntments_Model.class);
                         apntments_List.add(apntments_model);
                     }
+
                     adapter.notifyDataSetChanged();
                 }
-                Toast.makeText(Doc_apntments.this, "hello", Toast.LENGTH_SHORT).show();
+                else {
+                    apntments_List.clear();
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(Doc_apntments.this, "No Completed Appoinment ", Toast.LENGTH_SHORT).show();
+                }
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                adapter.notifyDataSetChanged();
             }
         });
     }

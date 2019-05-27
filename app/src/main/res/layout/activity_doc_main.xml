@@ -32,6 +32,7 @@
             android:textSize="20sp" />
     </LinearLayout>
 
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/btm_nav_doc"
         android:layout_width="match_parent"

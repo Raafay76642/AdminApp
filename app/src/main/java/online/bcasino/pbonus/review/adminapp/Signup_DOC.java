@@ -29,7 +29,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
-public class Add_Doctor extends AppCompatActivity {
+public class Signup_DOC extends AppCompatActivity {
 
     EditText dname,demail,dpass,dage,drepass,d_fee;
     Spinner ddep,dgender,dcountry;
@@ -49,7 +49,7 @@ public class Add_Doctor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add__doctor);
+        setContentView(R.layout.activity_signup_doc);
         dname=(EditText)findViewById(R.id.d_name);
         demail=(EditText)findViewById(R.id.d_email);
         dpass=(EditText)findViewById(R.id.d_password);
@@ -58,12 +58,12 @@ public class Add_Doctor extends AppCompatActivity {
         bdadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadFile();
+                registerDoc();
             }
         });
         ddep=(Spinner) findViewById(R.id.d_dep);
         d_fee=(EditText)findViewById(R.id.dfee);
-        ProfileImage=findViewById(R.id.profile_image);
+
         dgender=(Spinner) findViewById(R.id.d_gender);
         drepass=(EditText)findViewById(R.id.d_repassword);
         dcountry=(Spinner) findViewById(R.id.d_country);firebaseAuth = FirebaseAuth.getInstance();
@@ -76,14 +76,14 @@ public class Add_Doctor extends AppCompatActivity {
 
 
     }
-    @Override
-    public void onBackPressed()
-    {
-        super.onBackPressed();
-        finish();// optional depending on your needs
-        Intent intent=new Intent(this,Admin_main.class);
-        startActivity(intent);
-    }
+//    @Override
+//    public void onBackPressed()
+//    {
+//        super.onBackPressed();
+//        finish();// optional depending on your needs
+//        Intent intent=new Intent(this,Admin_main.class);
+//        startActivity(intent);
+//    }
     public void open_gallery(View view)
     {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -131,10 +131,11 @@ public class Add_Doctor extends AppCompatActivity {
                             ProfilePic=uri.toString();
                         }
                     });
-                    Doctor_Model doctorModel =new Doctor_Model(Name,Gender,Country,Age,id,email,dep,fee,role,ProfilePic);
-                            mref.child(id).setValue(doctorModel);
+
+//                    Doctor_Model doctorModel =new Doctor_Model(Name,Gender,Country,Age,id,email,dep,fee,role,ProfilePic);
+//                            mref.child(id).setValue(doctorModel);
                     mProgressBarsaving.cancel();
-                    final Toast toast = Toast.makeText(Add_Doctor.this, "Data is Saved", Toast.LENGTH_LONG);
+                    final Toast toast = Toast.makeText(Signup_DOC.this, "Data is Saved", Toast.LENGTH_LONG);
                     toast.show();
 
                 }
@@ -142,7 +143,7 @@ public class Add_Doctor extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Add_Doctor.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Signup_DOC.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         } else {
@@ -210,6 +211,7 @@ public class Add_Doctor extends AppCompatActivity {
             return ;
 
         }
+
         //both the edit text are not empty
         progressDialog.setMessage("Registring Doctor...");
         progressDialog.show();
@@ -221,16 +223,15 @@ public class Add_Doctor extends AppCompatActivity {
                         if(task.isSuccessful()){
                             id=FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                            //display some message here
-//                            Doctor_Model doctorModel =new Doctor_Model(Name,Gender,Country,Age,id,email,dep,fee,role);
-//                            mref.child(id).setValue(doctorModel);
-                            Toast.makeText(Add_Doctor.this,"Successfully registered",Toast.LENGTH_LONG).show();
+                            Doctor_Model doctorModel =new Doctor_Model(Name,Gender,Country,Age,id,email,dep,fee,role);
+                            mref.child(id).setValue(doctorModel);
+                            Toast.makeText(Signup_DOC.this,"Successfully registered",Toast.LENGTH_LONG).show();
 
-
+                            finish();
 
                         }else{
                             //display some message here
-                            Toast.makeText(Add_Doctor.this,"Registration Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(Signup_DOC.this,"Registration Error",Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();
 
